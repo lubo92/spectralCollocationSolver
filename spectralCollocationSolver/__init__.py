@@ -1,0 +1,1 @@
+from spectralCollocationSolver.spectralCollocationSolver import *
