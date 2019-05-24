@@ -35,7 +35,17 @@ class SpectralCollocationSolver(object):
         self.D2 = self.f.differentiationMatrix(2,self.nodes,self.weights)    # matrix for second derivative
         self.D3 = self.f.differentiationMatrix(3,self.nodes,self.weights)    # matrix for third derivative
         
-    def solve(self, init, args):
+    def solve(self, init, args, plot=False):
+        '''
+        This method solves the searches for the optimal solution to the provided differential equation.
+        
+        Parameters:
+        init (ndarray(nNodes)): initial values of interpolating function at grid points
+        args (tuple): tuple of args as neccessary in the "residuals" method
+        
+        Returns:
+        scipy.optimize.optimize.OptimizeResult: result of solution search
+        '''
         solution = least_squares(self.residuals,init,args=[args])
-        self.f.interpolateFunction(solution.x,self.l,plot=True,nodes=self.nodes)
+        self.f.interpolateFunction(solution.x,self.l,plot=plot,nodes=self.nodes)
         return solution
