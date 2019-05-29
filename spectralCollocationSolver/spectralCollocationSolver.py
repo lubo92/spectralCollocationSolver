@@ -47,5 +47,4 @@ class SpectralCollocationSolver(object):
         scipy.optimize.optimize.OptimizeResult: result of solution search
         '''
         solution = least_squares(self.residuals,init,args=[args])
-        self.f.interpolateFunction(solution.x,self.l,plot=plot,nodes=self.nodes)
         return solution
