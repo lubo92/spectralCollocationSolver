@@ -1,5 +1,14 @@
 # Spectral Collocation Method Differential Equation Solver
 
+## References
+This package was developed by Wolfgang Lubowski for a project in fluid dynamics and heat transfer with the title "Solution of Prandtl’s boundary layer equations with a spectral collocation method based on barycentric Lagrange interpolation" supervised by Stefan Braun, institute of fluid mechanics and heat transfer, TU Wien in May 2020.
+
+The implementation closely follows these papers:
+
+R. Baltensperger and M. R. Trummer. Spectral differencing with a twist. SIAM J. Sci. Comp., 24(5):1465–1487, 2003.
+
+J.-P. Berrut and L. N. Trefethen. Barycentric lagrange interpolation. SIAM Rev., 46(3):501–517, 2004.
+
 ## What does this package provide?
 This package provides an differential equation sovler with the a spectral collocation method. This means, a differential equation is solved by interpolating the target function and solving the differential equation at every node (sampling point) of the interpolation. It can solve (nonlinear) differential equations of any degree. Partial differential equations are not supported. Since the underlying interpolation is a barycentric Lagrange interpolation on Gauss-Lobatto nodes (aka Chebishev points of second kind) this tool only works on the domain [-1,1].
 
@@ -38,11 +47,6 @@ Or if your Python installation requires root permission:
 ```
 sudo -H python3 setup.py install
 ```
-
-## Mathematical Background and Literature
-The code provided in this package closeley follows this paper:
-
-[Berrut, Jean-Paul, and Trefethen, Lloyd N. "Barycentric lagrange interpolation." SIAM review 46.3 (2004): 501-517.] (https://people.maths.ox.ac.uk/trefethen/barycentric.pdf)
 
 ## Examples
 An usage example Jupyter notebook is provided in the file example.ipynb.
